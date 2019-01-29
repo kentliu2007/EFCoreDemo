@@ -1,0 +1,1 @@
+﻿{"ContextClassName":"EfdemoContext","DefaultDacpacSchema":null,"IdReplace":false,"IncludeConnectionString":true,"OutputPath":"","ProjectRootNamespace":"EFCoreDemo.DataAccess","SelectedToBeGenerated":0,"Tables":[{"HasPrimaryKey":true,"Name":"dbo.Employees"}],"UseDatabaseNames":false,"UseFluentApiOnly":false,"UseHandleBars":true,"UseInflector":true}
