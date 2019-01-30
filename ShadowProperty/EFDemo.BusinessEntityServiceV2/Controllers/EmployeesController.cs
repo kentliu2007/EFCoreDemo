@@ -111,9 +111,9 @@ namespace EFDemo.BusinessEntityServiceV2.Controllers
             base.Dispose(disposing);
         }
 
-        private bool EmployeeExists(string employeeCode)
+        private bool EmployeeExists(string code)
         {
-            return db.Employees.Count(e => e.EmployeeCode == employeeCode) > 0;
+            return db.Employees.Count(e => e.EmployeeCode == code) > 0;
         }
     }
 }
