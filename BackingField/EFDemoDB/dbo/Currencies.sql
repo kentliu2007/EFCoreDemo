@@ -4,7 +4,7 @@
     [CurrencyName]  NVARCHAR (100) NOT NULL,
     [DecimalPlaces] INT            CONSTRAINT [DF_Currencies_DecimalPlaces] DEFAULT ((0)) NULL,
     CONSTRAINT [PK_Currencies] PRIMARY KEY NONCLUSTERED ([CurrencyID] ASC),
-    CONSTRAINT [idx_Currencies_CurrencyCode] UNIQUE NONCLUSTERED ([CurrencyCode] ASC)
+    CONSTRAINT [idx_Currencies_CurrencyCode] UNIQUE CLUSTERED ([CurrencyCode] ASC)
 );
 
 
