@@ -8,33 +8,8 @@ namespace EFCoreDemo.BusinessEntities
     {
         public string ClientCode { get; set; }
         public string ClientName { get; set; }
-        public string MailAddress
-        {
-            get { return getClientContactInfo().MailAddress; }
-            set { getClientContactInfo().MailAddress = value; }
-        }
-        public string CellPhoneNo
-        {
-            get { return getClientContactInfo().CellPhoneNo; }
-            set { getClientContactInfo().CellPhoneNo = value; }
-        }
-        public string TelephoneNo
-        {
-            get { return getClientContactInfo().TelephoneNo; }
-            set { getClientContactInfo().TelephoneNo = value; }
-        }
-        public double Amount { get; set; }
-        public virtual Currency Currency { get; set; }
-        public virtual ClientContactInfo ContactInfo { get; set; }
 
-        protected void initContactInfo()
-        {
-            lock (this) { ContactInfo = new ClientContactInfo() { Client = this }; };
-        }
-        protected ClientContactInfo getClientContactInfo()
-        {
-            if (ContactInfo == null) initContactInfo();
-            return ContactInfo;
-        }
+        public virtual ClientAccountBalance AccountBalance { get; set; }
+
     }
 }
