@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EFDemoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClientAccountBalance">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="CurrencyID" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ClientName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Currencies">
+          <Key>
+            <PropertyRef Name="CurrencyID" />
+          </Key>
+          <Property Name="CurrencyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CurrencyCode" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="CurrencyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DecimalPlaces" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ClientAccountBalance_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ClientAccountBalance" Type="Self.ClientAccountBalance" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="ClientAccountBalance">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientAccountBalance_Currencies">
+          <End Role="Currencies" Type="Self.Currencies" Multiplicity="1" />
+          <End Role="ClientAccountBalance" Type="Self.ClientAccountBalance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currencies">
+              <PropertyRef Name="CurrencyID" />
+            </Principal>
+            <Dependent Role="ClientAccountBalance">
+              <PropertyRef Name="CurrencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EFDemoModelStoreContainer">
+          <EntitySet Name="ClientAccountBalance" EntityType="Self.ClientAccountBalance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Currencies" EntityType="Self.Currencies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ClientAccountBalance_Clients" Association="Self.FK_ClientAccountBalance_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="ClientAccountBalance" EntitySet="ClientAccountBalance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientAccountBalance_Currencies" Association="Self.FK_ClientAccountBalance_Currencies">
+            <End Role="Currencies" EntitySet="Currencies" />
+            <End Role="ClientAccountBalance" EntitySet="ClientAccountBalance" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EFDemoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="ClientCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ClientAccountBalance" Relationship="EFDemoModel.FK_ClientAccountBalance_Clients" FromRole="Client" ToRole="ClientAccountBalance" />
+        </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="CurrencyID" />
+          </Key>
+          <Property Name="CurrencyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CurrencyCode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CurrencyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DecimalPlaces" Type="Int32" />
+          <NavigationProperty Name="ClientAccountBalances" Relationship="EFDemoModel.FK_ClientAccountBalance_Currencies" FromRole="Currency" ToRole="ClientAccountBalance" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rawPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        </EntityType>
+        <EntityContainer Name="EFDemoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Currencies" EntityType="Self.Currency" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="ClientAccountBalances" EntityType="EFDemoModel.ClientAccountBalance" />
+          <AssociationSet Name="FK_ClientAccountBalance_Clients" Association="EFDemoModel.FK_ClientAccountBalance_Clients">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="ClientAccountBalance" EntitySet="ClientAccountBalances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientAccountBalance_Currencies" Association="EFDemoModel.FK_ClientAccountBalance_Currencies">
+            <End Role="Currency" EntitySet="Currencies" />
+            <End Role="ClientAccountBalance" EntitySet="ClientAccountBalances" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="ClientAccountBalance">
+          <Key>
+            <PropertyRef Name="ClientID" />
+          </Key>
+          <Property Name="ClientID" Type="Int32" Nullable="false" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="CurrencyID" Type="Int32" Nullable="false" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="rawAmount" Type="Int32" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="Client" Relationship="EFDemoModel.FK_ClientAccountBalance_Clients" FromRole="ClientAccountBalance" ToRole="Client" />
+          <NavigationProperty Name="Currency" Relationship="EFDemoModel.FK_ClientAccountBalance_Currencies" FromRole="ClientAccountBalance" ToRole="Currency" />
+        </EntityType>
+        <Association Name="FK_ClientAccountBalance_Clients">
+          <End Type="EFDemoModel.Client" Role="Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="EFDemoModel.ClientAccountBalance" Role="ClientAccountBalance" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ClientID" />
+            </Principal>
+            <Dependent Role="ClientAccountBalance">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientAccountBalance_Currencies">
+          <End Type="EFDemoModel.Currency" Role="Currency" Multiplicity="1" />
+          <End Type="EFDemoModel.ClientAccountBalance" Role="ClientAccountBalance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="CurrencyID" />
+            </Principal>
+            <Dependent Role="ClientAccountBalance">
+              <PropertyRef Name="CurrencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EFDemoModelStoreContainer" CdmEntityContainer="EFDemoEntities">
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="EFDemoModel.Client">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="ClientCode" ColumnName="ClientCode" />
+                <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Currencies">
+            <EntityTypeMapping TypeName="EFDemoModel.Currency">
+              <MappingFragment StoreEntitySet="Currencies">
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+                <ScalarProperty Name="CurrencyName" ColumnName="CurrencyName" />
+                <ScalarProperty Name="DecimalPlaces" ColumnName="DecimalPlaces" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="EFDemoModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="rawPassword" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientAccountBalances">
+            <EntityTypeMapping TypeName="EFDemoModel.ClientAccountBalance">
+              <MappingFragment StoreEntitySet="ClientAccountBalance">
+                <ScalarProperty Name="rawAmount" ColumnName="Amount" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
