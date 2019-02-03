@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemo.DataAccess", "DataAccessEF6\EFDemo.DataAccess.csproj", "{5D91FB98-79DB-4C06-B049-4625B946EE5A}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "EFDemoDB", "EFDemoDB\EFDemoDB.sqlproj", "{D0B4D5A7-8881-4F48-B86D-0C07CB4404A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDemoDataAccessUnitTest", "DataAccessEF6UnitTest\EFDemoDataAccessUnitTest.csproj", "{3AA40DDD-07E2-4DAB-AC51-DB89BE988B11}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D91FB98-79DB-4C06-B049-4625B946EE5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D91FB98-79DB-4C06-B049-4625B946EE5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D91FB98-79DB-4C06-B049-4625B946EE5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D91FB98-79DB-4C06-B049-4625B946EE5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0B4D5A7-8881-4F48-B86D-0C07CB4404A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B4D5A7-8881-4F48-B86D-0C07CB4404A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0B4D5A7-8881-4F48-B86D-0C07CB4404A2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D0B4D5A7-8881-4F48-B86D-0C07CB4404A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0B4D5A7-8881-4F48-B86D-0C07CB4404A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0B4D5A7-8881-4F48-B86D-0C07CB4404A2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3AA40DDD-07E2-4DAB-AC51-DB89BE988B11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AA40DDD-07E2-4DAB-AC51-DB89BE988B11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AA40DDD-07E2-4DAB-AC51-DB89BE988B11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AA40DDD-07E2-4DAB-AC51-DB89BE988B11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1AE84DCD-CB1B-4A68-894C-701136D90579}
+	EndGlobalSection
+EndGlobal
