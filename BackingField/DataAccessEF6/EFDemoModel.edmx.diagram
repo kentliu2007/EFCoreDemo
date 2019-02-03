@@ -7,7 +7,7 @@
       <Diagram DiagramId="69f3ccfc3bd04e1cbcb6b091be851483" Name="Diagram1">
         <EntityTypeShape EntityType="EFDemoModel.Client" Width="2" PointX="5.625" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="EFDemoModel.Currency" Width="1.875" PointX="0.5" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EFDemoModel.User" Width="1.75" PointX="8" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFDemoModel.User" Width="1.75" PointX="8" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="EFDemoModel.ClientAccountBalance" Width="2" PointX="3" PointY="0.75" />
         <AssociationConnector Association="EFDemoModel.FK_ClientAccountBalance_Clients" />
         <AssociationConnector Association="EFDemoModel.FK_ClientAccountBalance_Currencies" />

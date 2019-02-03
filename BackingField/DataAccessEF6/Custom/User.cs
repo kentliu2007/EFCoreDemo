@@ -9,7 +9,5 @@ namespace EFDemo.DataAccess
             get { return rawPassword; }
             set { rawPassword = PasswordHelper.EncryptPassword(value); }
         }
-
-
     }
 }

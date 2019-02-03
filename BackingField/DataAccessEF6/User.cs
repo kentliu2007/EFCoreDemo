@@ -14,8 +14,8 @@ namespace EFDemo.DataAccess
     
     public partial class User
     {
-        public int UserID { internal get; set; }
+        internal int UserID { get; set; }
         public string LoginName { get; set; }
-        public string rawPassword { internal get; set; }
+        internal string rawPassword { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace EFDemo.DataAccess
             this.ClientAccountBalances = new HashSet<ClientAccountBalance>();
         }
     
-        public int CurrencyID { get; set; }
+        internal int CurrencyID { get; set; }
         public string CurrencyCode { get; set; }
         public string CurrencyName { get; set; }
         public Nullable<int> DecimalPlaces { get; set; }

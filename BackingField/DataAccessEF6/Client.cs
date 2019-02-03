@@ -14,7 +14,7 @@ namespace EFDemo.DataAccess
     
     public partial class Client
     {
-        public int ClientID { internal get; set; }
+        internal int ClientID { get; set; }
         public string ClientCode { get; set; }
         public string ClientName { get; set; }
     

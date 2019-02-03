@@ -14,9 +14,9 @@ namespace EFDemo.DataAccess
     
     public partial class ClientAccountBalance
     {
-        public int ClientID { internal get; set; }
-        public int CurrencyID { internal get; set; }
-        public Nullable<int> rawAmount { internal get; set; }
+        internal int ClientID { get; set; }
+        internal int CurrencyID { get; set; }
+        internal Nullable<int> rawAmount { get; set; }
     
         public virtual Client Client { get; set; }
         public virtual Currency Currency { get; set; }
