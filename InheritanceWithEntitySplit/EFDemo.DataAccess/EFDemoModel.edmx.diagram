@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7165322535ab4b828d3ae9f29cdfa339" Name="Diagram1">
+        <EntityTypeShape EntityType="EFDemoModel.Student" Width="1.5" PointX="6.125" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFDemoModel.Teacher" Width="1.5" PointX="6.125" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFDemoModel.User" Width="1.5" PointX="3.125" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EFDemoModel.UserType" Width="1.5" PointX="0.625" PointY="2.25" IsExpanded="true" />
+        <InheritanceConnector EntityType="EFDemoModel.Student" />
+        <InheritanceConnector EntityType="EFDemoModel.Teacher" />
+        <AssociationConnector Association="EFDemoModel.FK_Users_UserTypes" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

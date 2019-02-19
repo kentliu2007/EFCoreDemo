@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EFCoreDemoInheritanceWithEntitySplit.BusinessEntities.User">
+    <Position X="1.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAEAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAg=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EFCoreDemoInheritanceWithEntitySplit.BusinessEntities.Teacher">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <Members>
+      <Field Name="_internalTeacher" Hidden="true" />
+      <Field Name="_lazyLoader" Hidden="true" />
+      <Method Name="getInternalTeacher" Hidden="true" />
+      <Method Name="initInernalTeacher" Hidden="true" />
+      <Property Name="internalTeacher" Hidden="true" />
+      <Method Name="Teacher" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AACAAEAAAEAAAAAAAAAAAIAAAAAAAAAABAAABgAAAAA=</HashCode>
+      <FileName>Teacher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EFCoreDemoInheritanceWithEntitySplit.BusinessEntities.Student">
+    <Position X="2.5" Y="3" Width="1.5" />
+    <Members>
+      <Field Name="_internalStudent" Hidden="true" />
+      <Field Name="_lazyLoader" Hidden="true" />
+      <Method Name="getInternalStudent" Hidden="true" />
+      <Method Name="initInernalStudent" Hidden="true" />
+      <Property Name="internalStudent" Hidden="true" />
+      <Method Name="Student" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAACAEQAAAIAAAAAAAAAAAAABIAAAAAA=</HashCode>
+      <FileName>Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
