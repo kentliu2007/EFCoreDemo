@@ -14,7 +14,7 @@ namespace EFDemo.DataAccessV2
     
     public partial class Employee
     {
-        public int EmployeeID { internal get; set; }
+        internal int EmployeeID { get; set; }
         public string EmployeeCode { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
